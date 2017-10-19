@@ -77,7 +77,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.plot, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.plot, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.plot, new { @class = "form-control", @cols=40, @rows=4 } )
                 @Html.ValidationMessageFor(model => model.plot, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -118,7 +118,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </div>
     </div>

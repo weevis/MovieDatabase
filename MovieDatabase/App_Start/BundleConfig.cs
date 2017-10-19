@@ -35,6 +35,14 @@ namespace MovieDatabase
             bundles.Add(new StyleBundle("~/Content/datatables").Include(
                 "~/Content/dataTables.bootstrap.min.css"
                 ));
+
+            bundles.Add(new ScriptBundle("~/bundles/videojs").Include(
+                "~/Scripts/video.js"
+                ));
+
+            bundles.Add(new StyleBundle("~/Content/videojs").Include(
+                "~/Content/video-js.css"
+                ));
         }
     }
 }

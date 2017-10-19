@@ -80,7 +80,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.thumbnail)
+            <img src="@Html.DisplayFor(model => model.thumbnail)"/>
         </dd>
 
         <dt>
@@ -88,7 +88,9 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.trailer)
+            <video id="trailer-video" class="video-js" controls preload="auto" width="640" height="480" poster="@Html.DisplayFor(model => model.thumbnail)" data-setup="{}">
+                <source src="@Html.DisplayFor(model => model.trailer)" />
+            </video>
         </dd>
 
         <dt>

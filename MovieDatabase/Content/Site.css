@@ -12,13 +12,38 @@
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
+.dl-horizontal {
+    margin-bottom: 50px;
+}
 .dl-horizontal dt {
     white-space: normal;
+    background: #000;
+    color: #fff;
+    float: left;
+    font-weight: bold;
+    margin-right: 10px;
+    padding: 5px;
+    width: 100px;
 }
+
+.dl-horizontal dd {
+    padding: 5px 0;
+}
+
+
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
     max-width: 280px;
+}
+
+table {
+    margin: 0 auto;
+    width: 100%;
+    clear: both;
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-wrap: break-word;
 }

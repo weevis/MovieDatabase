@@ -92,7 +92,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.plot, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.plot, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.plot, new  { @class = "form-control", @cols=40, @rows=4} )
                 @Html.ValidationMessageFor(model => model.plot, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -187,7 +187,7 @@
                             $('#thumbnail').val(result['poster']['thumb'] ? result['poster']['thumb'] : 'N/A');
                             var trailer = result['trailer'];
                             if (trailer.length)
-                                $('#trailer').val(trailer[0]);
+                                $('#trailer').val(trailer[0]['videoUrl']);
                             else
                                 $('#trailer').val('N/A');
                         },

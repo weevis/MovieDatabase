@@ -95,7 +95,23 @@
 @section Scripts {
     <script type="text/javascript">
     $(document).ready(function() {
-        $('#mainMovies').DataTable();
+        $('#mainMovies').removeAttr('width').DataTable({
+            columnDefs: [
+                {
+                    targets: 4,
+                    width: "45px"
+                },
+                {
+                    targets: 6,
+                    width: "80px"
+                },
+                {
+                    targets: 7,
+                    width: "60px"
+                }
+            ],
+            fixedColumns: true
+        });
     });
     </script>
 }

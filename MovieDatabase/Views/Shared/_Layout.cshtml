@@ -7,6 +7,7 @@
     <title>@ViewBag.Title - Movies to watch Database</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/datatables")
+    @Styles.Render("~/Content/videojs")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -33,21 +34,24 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - 
-                @{ 
-                    var isAdmin = helpers.isAdmin(User, HttpContext.Current.User.Identity.GetUserId());
-                    if( isAdmin == true)
-                    {
-                        @Html.ActionLink("Register Users", "register", "Account");
+            <div class="footer navbar-fixed-bottom" style="text-align: center;">
+                <p>&copy; @DateTime.Now.Year - 
+                    @{ 
+                        var isAdmin = helpers.isAdmin(User, HttpContext.Current.User.Identity.GetUserId());
+                        if( isAdmin == true)
+                        {
+                            @Html.ActionLink("Register Users", "register", "Account");
+                        }
                     }
-                }
-            </p>
+                </p>
+            </div>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/datatables")
+    @Scripts.Render("~/bundles/videojs")
     @RenderSection("scripts", required: false)
 </body>
 </html>
