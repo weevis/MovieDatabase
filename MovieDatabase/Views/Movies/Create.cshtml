@@ -1,0 +1,204 @@
+﻿@model MovieDatabase.Models.Movie
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+<h4>Movie</h4>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { name = "imdbfrm", id = "imdbfrm" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-inline">
+        <hr/>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("IMDBID:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-8">
+                @Html.Editor("imdb_id", new { htmlAttributes = new { @class = "form-control" } } )
+            </div>
+            <div class="col-md-2">
+                <button name="createme" id="createme" class="btn btn-primary">Lookup</button>
+            </div>
+        </div>
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReleaseDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ReleaseDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ReleaseDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Genre, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Genre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Genre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IMDBurl, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IMDBurl, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IMDBurl, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.rating, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.rating, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.rating, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.director, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.director, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.director, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.releaseYear, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.releaseYear, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.releaseYear, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.plot, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.plot, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.plot, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.thumbnail, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.thumbnail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.thumbnail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.trailer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.trailer, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.trailer, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.userID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.userID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.UserID, @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.userID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.watched, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.watched)
+                    @Html.ValidationMessageFor(model => model.watched, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript">
+        $(document).ready(function () {
+            $.validator.addMethod("regex", function (value, element, regexpr) {
+                return regexpr.test(value);
+            }, "Wrong IMDB ID Format.");
+
+            $('#imdbfrm').validate({
+                rules: {
+                    imdb_id: {
+                        required: true,
+                        regex: /tt\d{7}/
+                    }
+                }
+            });
+
+            $('#createme').on('click', function (e) {
+                if ($('#imdbfrm').valid()) {
+                    e.preventDefault();
+
+                    var id = $('#imdb_id').val();
+                    $.ajax({
+                        type: "GET",
+                        url: "http://www.theimdbapi.org/api/movie?movie_id=" + id,
+                        success: function (result)
+                        {
+                            console.log(result);
+                            $('#Title').val(result['title']);
+                            $('#ReleaseDate').val(result['release_date']);
+                            var genre = '';
+                            for (var i = 0; i < result['genre'].length; i++ )
+                            {
+                                genre = genre + result['genre'][i] + ( i == result['genre'].length -1 ? ' ' : ' / ');
+                            }
+                            $('#Genre').val(genre);
+                            $('#IMDBurl').val(result['url']['url'] ? result['url']['url'] : 'N/A');
+                            $('#rating').val(result['content_rating'] ? result['content_rating'] : 'N/A');
+                            $('#director').val(result['director'] ? result['director'] : 'N/A');
+                            $('#releaseYear').val(result['year'] != "" ? parseInt(result['year']) : -1);
+                            $('#plot').val(result['storyline']);
+                            $('#thumbnail').val(result['poster']['thumb'] ? result['poster']['thumb'] : 'N/A');
+                            var trailer = result['trailer'];
+                            if (trailer.length)
+                                $('#trailer').val(trailer[0]);
+                            else
+                                $('#trailer').val('N/A');
+                        },
+                        error: function () {
+                            alert("Error making request to movie API");
+                        }
+                    });
+                }
+                else
+                    alert('invalid imdb id');
+            });
+        });
+</script>
+}
